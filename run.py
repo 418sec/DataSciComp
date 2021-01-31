@@ -43,7 +43,7 @@ competitions = []
 for add_data in add_datas:
     with open(add_data, "r", encoding="utf-8") as f:
         cfg = f.read()
-        competitions.extend(yaml.load(cfg))
+        competitions.extend(yaml.safe_load(cfg))
 competitions = [
     c
     for c in competitions
@@ -114,7 +114,7 @@ def index(
 
 with open("./_data/_hosts.yaml", "r", encoding="utf-8") as f:
     cfg = f.read()
-    hosts = yaml.load(cfg)
+    hosts = yaml.safe_load(cfg)
 
 
 @app.route("/hostby.html")
